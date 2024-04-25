@@ -1,0 +1,116 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* 
+.lazyload {
+    
+} */
+
+/* Styles for the dropdown content */
+ /* #servicesDropdown {
+    position: absolute;
+    z-index: 10;
+} */
+
+/* Show dropdown on hover */
+ #servicesDropdown.show {
+    display: block;
+}  
+
+/* Mobile responsiveness */
+  @media (max-width: 767px) {
+    .lg\\:hidden {
+        display: none !important;
+    }
+} 
+/* 
+@media (min-width: 768px) {
+    #servicesDropdown.hidden {
+        display: none;
+    }
+} */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgb(249 250 251);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 10;
+    
+}
+
+
+
+.dropdown:hover .dropdown-content {
+    display: inline-block;
+}
+
+.dropdown-item {
+    display: block;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: black;
+}
+
+.intern-id :hover{
+     background-color: rgb(114, 113, 112);
+     color: white;
+     /* transform: translateX(0.5px); */
+}
+
+
+ 
+
+.marquee-container {
+   
+    display: flex;
+    width: max-content ;/* Take full width of the viewport */
+    
+  
+    
+    
+}
+
+.marquee-container > .container {
+    display: flex;
+   
+    /* margin-right: 20px; */
+    animation-iteration-count: infinite;
+    /* Adjust spacing between items */
+}
+
+.marquee-container img {
+    max-width: 48px; /* Ensure images don't exceed 48px in width */
+    height: auto;
+}
+
+@keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-100%); }
+}
+
+.marquee-container {
+    animation: marquee 15s linear infinite;
+}
+
+
+.menu-link {
+    transition: all 0.3s ease;
+  }
+  
+  .menu-link:hover {
+    transform: scale(1.1);
+  }
+  
+  .submenu-link {
+    transition: all 0.3s ease;
+  }
+  
+  .submenu-link:hover {
+    transform: translateY(-2px);
+  }
+
+  .rotate-180 {
+    transform: rotate(180deg);
+  } 

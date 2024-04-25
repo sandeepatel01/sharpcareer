@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+
+    <script src="script.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy" crossorigin="anonymous"></script>
+   
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <title>SharpCareer Technologies</title>
+    <link rel="icon" href="./assets/Logo/logo-removebg-preview.png" type="image/x-icon">
+  
+
+        <!-- google font -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Mulish:wght@200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet"
+        />
+        <style>
+          #services-link:hover #arrow-icon,
+          #services-dropdown:hover #arrow-icon
+          {
+            transform: rotate(180deg);
+          }
+
+          #services-link:hover + #services-dropdown,
+          #services-dropdown:hover {
+          display: block;
+    }
+    .dropdown-menu {
+            display: none;
+        }
+        #menu-toggle:checked + .dropdown-menu {
+            display: block;
+        }
+
+    
+        </style>   
+
+</head>
+<body>
+    
+  <div class="overflow-x-hidden relative w-full  ">
+
+      <!-- navbar -->
+      <nav class="fixed z-20 bg-slate-200 flex mx-auto  justify-between items-center p-4 w-full lg:p-2">
+    
+      <div class="flex items-center">
+        <div class="flex-shrink-0 px-5 pt-5 lg:pt-2 lg:px-2 sm:mx-8 hidden lg:flex">
+          <a href="/" class="cursor-pointer py-7 pr-7  ">
+            <img
+            src="./assets/Logo/Logo-Full-Light.png"
+            width="160px"
+            height="45px"/>
+        </a>
+        </div> 
+        
+        <input type="checkbox" id="menu-toggle" class="hidden lg:hidden justify-end ">
+        <label for="menu-toggle" class="lg:hidden ">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+        </label>
+      
+      </div>
+      <nav id="menu" class="hidden  lg:flex mt-4  text-gray-600 mr-20  pt-5 lg:pt-2 ">
+        <ul class="flex-col flex  lg:flex-row space-y-2 lg:space-y-0 lg:space-x-4 ">
+          <li><a href="#" class="menu-link hover:text-lightBlue flex lg:p-4 ">Home</a></li>
+          <li><a href="./aboutUs.html" class="menu-link  flex hover:text-lightBlue lg:p-4">About Us</a></li>
+        
+          <li class="relative group lg:block lg:p-4">
+            <a  class="menu-link flex items-center transition-all duration-300 hover:text-lightBlue " id="services-link">Services
+              <svg id="arrow-icon" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 hover:text-lightBlue transition-transform duration-300 transform" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M10 12L5 7l-1.5 1.5L10 15l6.5-6.5L15 7z" />
+              </svg>
+            </a>
+            
+            <ul class="hidden   lg:absolute   bg-white   lg:text-gray-400 mt-2 lg:p-5 rounded-lg shadow-lg group-hover:block min-w-full" id="services-dropdown">
+              <li><a href="./internships.html" class="w-full submenu-link p-2  hover:text-lightBlue lg:flex dropdown-item">Internship</a></li>
+              <li><a href="./recruitmnent.html" class="w-auto submenu-link p-2  hover:text-lightBlue lg:flex dropdown-item">Recruitment</a></li>
+              <li><a href="./websiteDesigning.html" class="  submenu-link p-2 hover:text-lightBlue lg:flex dropdown-item">Website Designing</a></li>
+            </ul>
+          
+          </li>
+       
+          <li ><a href="./contactUs.html" class="menu-link hover:text-lightBlue transition-all duration-300  flex lg:p-4">Contact Us</a></li>
+        </ul>
+      </nav>
+  
+  </nav>
+  <div>
+     
+    <script>
+      document.getElementById('menu-toggle').addEventListener('click', function() {
+        document.getElementById('menu').classList.toggle('hidden');
+      });
+
+       // Show dropdown on hover for large screens
+
+
+  const servicesLink = document.querySelector('services-link');
+  // const arrowIcon = document.getElementById('arrow-icon');
+  const servicesDropdown = document.getElementById('services-dropdown');
+
+  servicesLink.addEventListener('mouseover', function() {
+   
+    servicesDropdown.classList.remove('hidden');
+  });
+
+  servicesLink.addEventListener('mouseout', function() {
+    // Hide the dropdown only if the mouse leaves both the link and the dropdown
+    servicesLink.addEventListener('mouseleave', function(event) {
+      if (!event.relatedTarget || !servicesLink.contains(event.relatedTarget) && !servicesDropdown.contains(event.relatedTarget)) {
+        
+        servicesDropdown.classList.add('hidden');
+      }
+    });
+  });
+ 
+  servicesDropdown.addEventListener('mouseover', function() {
+   
+    servicesDropdown.classList.remove('hidden');
+  });
+
+  servicesDropdown.addEventListener('mouseout', function() {
+    // Hide the dropdown only if the mouse leaves both the link and the dropdown
+    servicesDropdown.addEventListener('mouseleave', function(event) {
+      if (!event.relatedTarget || !servicesLink.contains(event.relatedTarget) && !servicesDropdown.contains(event.relatedTarget)) {
+      
+        servicesDropdown.classList.add('hidden');
+      }
+    });
+  });
+    </script>
+
+
+  
+
+  <!--Hero Section-->
+  <section
+  class="relative bg-white mt-20">
+
+  <div class="w-10/12 max-w-[1080px] flex sm:flex-col lg:flex-row justify-between items-center mx-auto ">
+      
+      <div class="space-y-8">
+        <h1 class=" pt-20 font-mullish font-bold text-[45px] leading-[1.2] text-black-600 text-center">
+          Upskill Your Career With <span class="text-blue-600" >SharpCareer Technologies</span>  
+        </h1>
+        
+        
+        <p class="pb-6 font-mullish text-[18px] leading-7 text-black opacity-70 text-center">
+          Embark on an interactive career transformation with SharpCareer Technologies! Unleash your potential through engaging real-life internships, stay ahead with our dynamic job updates program, and supercharge your growth with personalized mentorships. 
+
+
+
+
+
+        </p>
+        
+    </div>
+     
+  </div>
+
+ 
+  <div class="relative w-11/12 max-w-[1080px] mx-auto pt-4">
+  <div class="mx-7 my-9 shadow-lg shadow-blue-200">
+    <video class="  shadow-2xl shadow-offset-blue-900 "  poster="placeholder.jpg" muted loop autoplay>
+      <source src="./assets/Images/banner.mp4" type="video/mp4"> 
+        
+    </video>
+  </div>
+</div>
+
+  </section>
+
+  <!--feature section - 1-->
+  <section class="relative mt-[190px] overflow-hidden">
+      <img src="./images/feature-section1-dottedrows.png" alt="" loading="lazy" 
+      width="233"
+      height="167"
+      class="absolute -top-[8rem] left-[10rem] inline-block -z-10  md:block">
+
+      <img src="./images/feature-section1-dottedrows.png" alt="" loading="lazy"
+      width="233"
+      height="167"
+      class="absolute top-[3rem] right-0 inline-block rotate-180  md:block">
+
+      <div class="relative w-11/12 max-w-[1080px] mx-auto pt-4 ">
+          <!--heading-->
+          <h2 class="font-mullish text-center text-2xl leading-[1.2] font-extrabold "> Join <span class="text-blue-600">SharpCareer's</span> Premier programs
+          </h2>
+          
+          
+
+
+          <div class="w-6 h-1 bg-greenLight mx-auto mt-4 mb-6"></div>
+
+          <!--content box-->
+          <div class="w-full min-h-[520px] bg-slate-50 flex rounded-md relative p-10 py-12 border">
+              <!--left section-->
+              <div class="flex flex-col justify-between  w-full">
+                  <h3 class="font-mullish text-[28px] leading-10 font-bold max-w-[500px]">
+                    Supercharge your Career with the all‑powerful
+                      <span class="text-blue-600">Programs</span>
+                  </h3>
+                  <ul class="space-y-2">
+                      <li class="font-mullish flex items-center space-x-2">
+                          
+                          <i data-feather="check" class="text-greenLight"></i>
+                          <span>Our Traning & Internships</span>
+                      </li>
+                      <li class="font-mullish flex items-center space-x-2">
+                          <i data-feather="check" class="text-greenLight"></i>
+                          <span> JobNex </span>
+                      </li>
+                      <li class="font-mullish flex items-center space-x-2">
+                          <i data-feather="check" class="text-greenLight"></i>
+                          <span> Career Guidance Sessions </span>
+                      </li>
+                      <li class="font-mullish flex items-center space-x-2">
+                          <i data-feather="check" class="text-greenLight"></i>
+                          <span> Website Designing </span>
+                      </li>
+                      <li class="font-mullish flex items-center space-x-2">
+                          <i data-feather="check" class="text-greenLight"></i>
+                          <span> One to One doubt support </span>
+                      </li>
+                      
+                  </ul>
+
+            
+
+              </div>
+              <img src="./images/person1.jpg" alt=""
+              class=" max-w-[600px] hidden md:max-w-[400px] lg:max-w-[600px] md:block lg:block object-cover h-100 w-96 rounded " >
+            
+              
+          </div>
+  </section>
+ 
+  <section>
+    <div class="border-b-4 py-12 border-[#d3d2d2] font-mullish "></div>
+     <!-- Akash -->
+     <div class="border-b-4 py-12 border-[#d3d2d2] font-mullish ">
+      <div class="grid md:grid-cols-[6.5fr_5.5fr] place-items-center  md:place-items-stretch max-w-[1260px] w-11/12 mx-auto gap-8">
+        <div class="flex flex-col gap-4 max-w-[650px] justify-around md:order-1">
+          <h2 class="text-2xl lg:text-3xl font-bold text-[#3D3D3D] pr-8">
+            Unlock Your Potential Join Our Thrilling  <span class="text-blue-600">Software Engineering Internship Journey!</span>
+          </h2>
+          <p class="leading-relaxed font-medium text-gray-600 text-sm lg:text-base pr-10">
+            Fast-track Your Career: Gain Industry Experience, Unlock Opportunities, and Get Placed Easily with Our Engaging Internship Program for Rapid Skill Development and Career Growth.
+          </p>
+          <div class="flex gap-4 ">
+            <button id="applyNowButton1" class="px-4 py-2 rounded-md  lg:text-sm text-[#efefef] bg-[#01b256] hover:bg-[#019c4c] font-medium  hover:text-white text-xs">
+              <a href=""></a>
+              Apply Now
+            </button>
+         
+          </div>
+        </div>
+        
+        <div class="max-w-[550px]">
+          <img
+            src="./images/webimage6.jpg"
+            alt="code"
+            class="max-w-[600px] hidden md:max-w-[400px] lg:max-w-[600px] md:block lg:block object-cover  rounded-md   "
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class=" font-mullish bg-slate-50">
+      <div class="grid md:grid-cols-[6.5fr_5.5fr] place-items-center md:place-items-stretch max-w-[1260px] w-11/12 mx-auto gap-8">
+        <div class="flex flex-col gap-4 max-w-[650px] justify-around ">
+          <h2 class="text-2xl lg:text-3xl font-bold text-[#3D3D3D]">
+            <span class="text-blue-600">SuperCharge </span>coding skills with exclusive One To One doubt sessions!
+          </h2>
+          <ul>
+            <li class="leading-relaxed font-medium text-gray text-sm lg:text-base">   Unlock the power of problem-solving mastery! Dive into personalized doubt-solving sessions led by our seasoned experts in C++, Java, or Python, and elevate your skills to new heights. Join us today and transform your coding journey.</li>
+            
+          </ul>
+          
+        
+          
+          <div class="flex gap-4 ">
+            <button id="ApplyNow2" class="px-4 py-2 rounded-md  lg:text-sm text-[#efefef] bg-[#01b256] hover:bg-[#019c4c] font-medium  hover:text-white text-xs ">
+              Apply Now
+            </button>
+           
+            <div id="myModal" class="fixed inset-0 bg-black bg-opacity-50  justify-center items-center hidden">
+              <div class="modal-content bg-white p-8 rounded-lg">
+                  <p class="text-lg font-semibold">Coming Soon</p>
+                  <p class="text-gray-700">Our mentorship program launch soon. Stay tuned!</p>
+                  <button id="closeModal" class="mt-4 px-4 py-2 bg-[#01b256] text-white font-semibold rounded-md hover:bg-[#019c4c]">Close</button>
+              </div>
+          </div>
+          </div>
+        </div>
+        <div class="max-w-[550px]">
+          <img
+            src="./images/webimage4.jpg"
+            alt="code"
+            class="max-w-[600px] hidden md:max-w-[400px] lg:max-w-[600px] md:block lg:block object-cover  rounded-md "
+          />
+        </div>
+      </div>
+    </div>
+    <div class="border-b-4 py-12 border-[#d3d2d2] font-mullish ">
+      <div class="grid md:grid-cols-[6.5fr_5.5fr] place-items-center  md:place-items-stretch max-w-[1260px] w-11/12 mx-auto gap-8">
+        <div class="flex flex-col gap-4 max-w-[650px] justify-around md:order-1">
+          <h2 class="text-2xl lg:text-3xl font-bold text-[#3D3D3D]">
+            Enhance Your Digital Presence with <span class="text-blue-600">Website Development! </span>
+          </h2>
+          <p class="leading-relaxed font-medium text-gray-600 text-sm lg:text-base">
+            Unleash Your Brand's Potential and Elevate Your Future with Our Comprehensive Solutions in Website Development, Cutting-Edge Projects, and Ongoing Maintenance.
+          </p>
+          <div id="ContactUs" class="flex gap-4 ">
+            <button class="px-4 py-2 rounded-md  lg:text-sm text-[#efefef] bg-[#01b256] hover:bg-[#019c4c] font-medium  hover:text-white text-xs ">
+              Contact Us
+            </button>
+          
+          </div>
+        </div>
+        <div class="max-w-[550px]">
+          <img
+            src="./images/webimage3.jpg"
+            alt="code"
+            class="max-w-[600px] hidden md:max-w-[400px] lg:max-w-[600px] md:block lg:block object-cover  rounded-md"
+          />
+        </div>
+      </div>
+    </div>
+
+  </section>
+  <!-- feature section 2-->
+  <section
+  class="bg-white bg-no-repeat bg-cover pb-[50px] mt-8 pt-[10rem] z-0">
+     
+  <div
+  class="w-10/12 max-w-[1080px]  mx-auto relative pt-4 ">
+
+          <h2 class="font-mullish text-center text-2xl leading-[1.2] text-deepBlue font-bold"
+          >Explore SharpCareer JobNex Program</h2>
+          <div class="w-6 h-1 bg-greenLight mx-auto mt-4 mb-6"></div>
+
+
+          <!-- main feaeture box-->
+          <div class="w-full min-h[440px] flex flex-col relative">
+              <img src="./images/x-flame-1.png" alt=""
+              loading="lazy"
+              class="absolute -top-[142px] -left-[140px] w-[200px]">
+              
+              <img src="./images/x-flame-2.png" alt=""
+              loading="lazy"
+              class="absolute top-[150px] -right-[180px] w-[200px]">
+
+              <!--content box-->
+              <div class="relative w-full bg-deepBlue p-10 py-12 border border-slate-700 z-0 rounded-md ">
+                  <!--left part-->
+                  <div class="flex flex-col justify-between items-start h-full w-full gap-12 z-20">
+                      <h3 class="font-mullish text-[28px] text-white font-bold leading-10 max-w-[500px] "
+                      >Manage your Placements with our  
+                          
+                          <span class="text-greenLight">JobNext</span>
+                      </h3>
+
+                      <ul class="space-y-2">
+                          <li class="font-mullish text-white flex items-center space-x-2">
+                              <i data-feather="check" class="text-greenLight"></i>
+                              <span>Fill a form and upload your resume
+                              </span>
+                          </li>
+                          <li class="font-mullish text-white flex items-center space-x-2"> 
+                              <i data-feather="check" class="text-greenLight"></i>
+                              <span>On the basis of your resume we send updates on your registered E-mail
+                          </span></li>
+                          <!-- <li class="font-mullish text-white flex items-center space-x-2">
+                              <i data-feather="check" class="text-greenLight"></i>
+                              <span>If you cleared our interview then fill final registration form 
+                              </span>
+                          </li> -->
+                          <li class="font-mullish text-white flex items-center space-x-2">
+                              <i data-feather="check" class="text-greenLight"></i>
+                              <span>We connect with recruiters and provide regular off campus hiring updates
+                              </span>
+                          </li>
+                          <li class="font-mullish text-white flex items-center space-x-2">
+                            <i data-feather="check" class="text-greenLight"></i>
+                            <span>Your chance of getting placed increased upto 80%
+                            </span>
+                        </li>
+                      </ul>
+                      <div id="RegisterNow" class="flex flex-col-reverse md:flex-row w-full items-center space-x-4 ">
+                          <button
+                          class="relative bg-lightBlue flex items-center 
+                          place-content-center md:justify-start text-white py-[14px] px-[18px] md:pr-[90px] rounded-md
+                           font-mullish font-bold hover:bg-lightBlue500 transition-all duration-200
+                           self-stretch md:w-fit">
+                              Register Now
+                              <div class="w-12 h-[60px] bg-greenLight absolute right-6 skew-x-[20deg] 
+                              flex justify-center items-center">
+                                  <!--arrow-->
+                                  <svg
+                                  viewBox="0 0 24 24"
+                                  focusable="false"
+                                  class="w-[20px] h-[20px] -skew-x-[20deg] "
+                                >
+                                  <path
+                                    fill="currentColor"
+                                    d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"
+                                  ></path>
+                                </svg>
+                              </div>
+                          </button>
+                         
+                      </div>
+                  </div>
+               
+              </div>
+
+             
+
+          </div>
+
+      </div>
+      
+  </section>
+  
+
+ 
+ 
+  <!--join razorpay section-->
+
+  <section class="bg-[#f5f8fe] bg-no-repeat bg-cover pb-[50px] mt-4 pt-[2rem]">
+    <div
+  class="w-10/12 max-w-[1080px]  mx-auto relative pt-4 ">
+
+          <h2 class="font-mullish text-center text-2xl leading-[1.2] text-deepBlue font-bold"
+          >We Help You Hire freshers Candidates in Software domain</h2>
+          <div class="w-6 h-1 bg-greenLight mx-auto mt-4 mb-6"></div>
+ 
+    <!-- <div class="w-11/12 max-w-[1080px] mx-auto relative flex flex-col md:flex-row"> -->
+      
+
+      <!--left part -->
+      
+      <div class="flex flex-col justify-center w-full md:max-w-[calc(100%-500px)] sm:my-16">
+        <h2 class="font-mullish font-bold text-1xl text-deepBlueHead">
+          <ul class="space-y-2">
+            <li class="font-mullish text-deepBlue flex items-center space-x-2">
+                <i data-feather="check" class="text-greenLight"></i>
+                <span>Tailored Recruitment Solutions
+                </span>
+            </li>
+            <li class="font-mullish text-deepBlue flex items-center space-x-2"> 
+                <i data-feather="check" class="text-greenLight"></i>
+                <span>Pre-Screening and Interview
+            </span></li>
+            <li class="font-mullish text-deepBlue flex items-center space-x-2">
+                <i data-feather="check" class="text-greenLight"></i>
+                <span>Our Customized Internship & Training Programs
+                </span>
+            </li>
+            <li class="font-mullish text-deepBlue flex items-center space-x-2">
+                <i data-feather="check" class="text-greenLight"></i>
+                <span>Career Development Support to our students
+                </span>
+            </li>
+            <li class="font-mullish text-deepBlue flex items-center space-x-2">
+              <i data-feather="check" class="text-greenLight"></i>
+              <span>Targeted Candidate Selection
+              </span>
+          </li>
+          <li class="font-mullish text-deepBlue flex items-center space-x-2">
+            <i data-feather="check" class="text-greenLight"></i>
+            <span>Efficient Selection Process with No Fees</span>
+        </li>
+          
+        </ul>
+        <div id="RecruitNow" class="flex gap-4 pt-4 m-8  justify-center">
+          <button class="px-4 py-2 rounded-md  lg:text-sm text-[#efefef] bg-[#01b256] hover:bg-[#019c4c] font-medium  hover:text-white text-xs ">
+            Recruit Now
+          </button>
+        
+        </div>
+        
+        
+      
+      
+        
+      </div>
+
+      <!--right part-->
+      
+
+    </div>
+
+  </section>
+
+  
+
+
+  <!-- Testimonail Section -->
+  <section class="relative">
+    
+    
+     <div class=" font-mullish  ">
+      <div class="grid md:grid-cols-[6.5fr_5.5fr] place-items-center  md:place-items-stretch max-w-[1260px] w-11/12 mx-auto gap-8">
+        <div class="flex flex-col gap-4 max-w-[650px] justify-around md:order-1">
+          <h2 class="text-2xl lg:text-3xl font-bold text-[#3D3D3D] pr-8 text-center">
+            What makes    <span class="text-blue-600">SharpCareer Technologies</span> best
+          </h2>
+          <ul class="space-y-2">
+            <li class="font-mullish text-deepBlue flex items-center space-x-2">
+                <i data-feather="check" class="text-greenLight"></i>
+                <span>Internship and Training Programs
+                </span>
+            </li>
+            <li class="font-mullish text-deepBlue flex items-center space-x-2"> 
+                <i data-feather="check" class="text-greenLight"></i>
+                <span>Valuable Candidate Recruitment
+            </span></li>
+            <li class="font-mullish text-deepBlue flex items-center space-x-2">
+                <i data-feather="check" class="text-greenLight"></i>
+                <span>Efficient Hiring Solutions
+
+
+                </span>
+            </li>
+            <li class="font-mullish text-deepBlue flex items-center space-x-2">
+                <i data-feather="check" class="text-greenLight"></i>
+                <span>Skill-Based Opportunities
+                </span>
+            </li>
+            <li class="font-mullish text-deepBlue flex items-center space-x-2">
+              <i data-feather="check" class="text-greenLight"></i>
+              <span>Global Talent Acquisition
+              </span>
+          </li>
+        </ul>
+          
+          
+        </div>
+        <div class="max-w-[550px] pt-[6rem]">
+          <img
+            src="./images/recruit.jpg"
+            alt="code"
+            class=" max-w-[600px] hidden md:max-w-[400px] lg:max-w-[600px] md:block lg:block object-cover  rounded-md"
+          />
+        </div>
+      </div>
+    </div>
+
+   
+
+    
+        
+   
+      </div>
+    </div>
+
+    <!-- 6 dot wala div-->
+   
+  </div>
+
+  </section>
+
+     <!-- Footer -->
+  
+  <section class="  bg-no-repeat bg-cover  min-h-[320px] pt-[200px] ">
+    <!--main content box-->
+    <footer
+    class="-mt-[100px] md:-mt-[110px] bg-deepBlue "
+  >
+  
+    <div
+      class="w-10/12 pt-[40px] pb-10 md:pt-[35px] md:my-0 md:w-11/12 max-w-[1080px] mx-auto flex flex-col space-y-6 lg:space-y-0 lg:space-x-4 lg:flex-row justify-between"
+    >
+      <!-- column - 1 -->
+      <div class="flex flex-col md:max-w-[340px] lg:max-w-[260px]">
+       
+        <div class="sameclass flex">
+          <img src="./assets/Logo/logo-removebg-preview.png" alt="" class="h-10 w-10">
+        <h1 class="text-white font-bold text-center m-2 text-xl">  SharpCareer</h1>
+        </div>
+        
+        <p class="text-sm text-white my-3 font-mullish">
+          SharpCareer Technologies acts as a strategic intermediary, bridging the gap between students and companies amidst economic challenges.We offer students unparalleled access to industry-level internships and practical experiences, providing them with invaluable insights and skills directly applicable to their desired career paths.
+        </p>
+         
+      </div>
+      <!-- column - 2 -->
+      <div
+        class="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-4 justify-between"
+      >
+        <!-- sub column - 1 -->
+        <div class="space-y-3">
+          <div>
+            <p class="font-mullish uppercase font-bold text-slate-50 mb-1">
+              Company
+            </p>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="font-mullish font-medium text-[#01b256] hover:text-grayBlue transition-all duration-200"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="font-mullish font-medium text-[#01b256] hover:text-grayBlue transition-all duration-200"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="font-mullish font-medium text-[#01b256] hover:text-grayBlue transition-all duration-200"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="font-mullish font-medium text-[#01b256] hover:text-grayBlue transition-all duration-200"
+                  >Internships</a
+                >
+              </li>
+              
+              
+            </ul>
+          </div>
+          
+            
+            
+          </div>
+          
+        </div>
+        <!-- sub column - 2 -->
+        <div class="space-y-3">
+          <div>
+            <p class="font-mullish uppercase font-bold text-slate-50 mb-1">
+              Legal
+            </p>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="font-mullish font-medium text-[#01b256] hover:text-grayBlue transition-all duration-200"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="font-mullish font-medium text-[#01b256] hover:text-grayBlue transition-all duration-200"
+                  >Terms & Condition</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="font-mullish font-medium text-[#01b256] hover:text-grayBlue transition-all duration-200"
+                  >Refund & Cancellation Policy</a
+                >
+              </li>
+              
+              
+             
+            </ul>
+          </div>
+          
+          
+        </div>
+        <!-- sub column - 3 -->
+        <div>
+           <div>
+            <p class="font-mullish uppercase font-bold text-slate-50 mb-1 mt-3">
+              Get in touch
+            </p>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="font-mullish font-medium text-lightBlue500 hover:text-grayBlue transition-all duration-200"
+                  ></a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="font-mullish font-medium text-[#01b256] hover:text-grayBlue transition-all duration-200"
+                  >services@sharpcareer.in</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-mullish uppercase font-bold text-slate-200 mb-1 mt-6">
+              FIND US ONLINE
+            </p>
+            <ul class="flex space-x-4 items-center mt-4">
+              <li class="cursor-pointer">
+                <a>
+                  <img
+                    src="/images/facebook-icon.svg"
+                    width="24"
+                    height="24"
+                    loading="lazy"
+                  />
+                </a>
+              </li>
+              <li class="cursor-pointer">
+                <a>
+                  <img
+                    src="/images/twitter-icon.svg"
+                    width="24"
+                    height="24"
+                    loading="lazy"
+                  />
+                </a>
+              </li>
+              <li class="cursor-pointer">
+                <a>
+                  <img
+                    src="/images/instagram-icon.svg"
+                    width="24"
+                    height="24"
+                    loading="lazy"
+                  />
+                </a>
+              </li>
+              
+              <li class="cursor-pointer">
+                <a>
+                  <img
+                    src="/images/linkedin-icon.svg"
+                    width="24"
+                    height="24"
+                    loading="lazy"
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            
+            <p class="font-mullish text-sm mt-4 whitespace-nowrap text-white">
+              SharpCareer Technologies 
+              <br />Delta 3 <br />Greater Noida, 201310,
+              <br> Uttar Pradesh, India <br /> Reg: UDYAM-UP-06-0010145
+            </p>
+            <div class="font-mullish mt-6 text-white ">
+              <p class="text-sm">© SharpCareer Technologies 2024</p>
+              <p class="text-sm">All Rights Reserved</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+    
+  </section>
+
+  </div>
+<div>
+  
+</div>
+    <!-- --------------------------------Footer-------------------------------- -->
+   
+    
+
+    <script src="script.js"></script>
+    <script>
+        feather.replace()
+    </script>
+</body>
+</html>

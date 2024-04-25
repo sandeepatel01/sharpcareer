@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SharpCareer Technologies</title>
+    <link rel="icon" href="./assets/Logo/logo-removebg-preview.png" type="image/x-icon">
+    <link rel="stylesheet" href="./main.css">
+</head>
+<!-- <style> 
+    body{
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100vh;
+  }
+  *{
+    box-sizing: border-box;
+  }
+  
+  .container {
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    padding: 20px;
+    height: 650px;
+    width: 500px;
+
+  }
+
+  input[type=text], textarea{
+     width: 100%;
+     padding: 12px;
+     border: 1px solid #ccc;
+     border-radius: 4px;
+     box-sizing: border-box;
+     margin-top: 6px;
+     margin-bottom: 16px;
+     resize: vertical;
+  }
+
+  input[type=button] {
+    background-color: blue;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+
+  }
+  input[type=button]:hover{
+    background-color: aqua;
+  }
+
+</style> -->
+<body>
+    <!-- <section>
+    <h2>Contact Us</h2>
+    <div class="container ">
+    <form action="" method="post">
+        <label for="name">Name:</label>        
+        <input type="text" id="name" name="name" placeholder=" Enter Your Name" required>
+        <div class="w-full" > <label for="email">Email:</label><br>
+        <input type="text" id="email" name="email" placeholder="Enter Your Email"  required><br>
+    </div>
+       
+        <label for="phone">Phone Number:</label><br>
+        <input type="text" id="phone" name="phone"  placeholder="Phone Number"><br>
+        <label for="subject" >Subject:</label><br>
+        <input type="text" id="subject" name="subject" placeholder="Please put your subject here" width="120px" height="120px" required><br>
+        <label for="message">Message</label>
+        <textarea name="" id="message" cols="30" rows="10" placeholder="Enter Your Message"></textarea>
+        <input type="button" value="Send" onclick="send()">
+    </form>
+    </div>
+</section> -->
+<section class="py-16 px-4">
+    <div class="container mx-auto">
+        <h2 class="text-4xl font-mullish font-bold mb-8 text-center">Contact Us</h2>
+        <p class="text-lg font-serif mb-8 text-gray-700">Interested candidates can apply by filling out the form below:</p>
+        <form action="#" method="POST">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <input id="name" type="text" name="name" placeholder="Your Name" class="bg-gray-100 text-gray-800 py-3 px-4 rounded-lg focus:outline-none">
+                <input id="email" type="email" name="email" placeholder="Your Email" class="bg-gray-100 text-gray-800 py-3 px-4 rounded-lg focus:outline-none">
+                <input id="phone" type="" name="number" placeholder="Your Contact Number" class="bg-gray-100 text-gray-800 py-3 px-4 rounded-lg focus:outline-none">
+                <input id="subject" type="text" name="subject" placeholder="Your Subject" class="bg-gray-100 text-gray-800 py-3 px-4 rounded-lg focus:outline-none">
+            </div>
+            <div class="pt-5 ">  
+                <textarea id="message" name="message" placeholder="What are you looking for?" rows="4" class="bg-gray-100 w-full text-gray-800 py-3 px-4 rounded-lg focus:outline-none"></textarea>
+                <div class="align-middle ">  
+                    <button type="submit" class="bg-blue-500 hover:bg-blue-600 text-white py-3 px-6 mt-5 rounded-lg  font-bold uppercase tracking-wide " onclick="Send()">Submit Application</button></div>
+          
+            </div>
+          
+        </form> 
+
+
+    </div>
+</section>
+    <script src="https://smtpjs.com/v3/smtp.js">
+    </script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script>
+        function Send() {
+          var name = document.getElementById("name").value;
+          var email = document.getElementById("email").value;
+          var contact = document.getElementById("phone").value;
+          var subject = document.getElementById("subject").value;
+          var mess = document.getElementById("message").value;
+         
+          var body = "Name: " + name + "<br/> Email: " + email + "<br/> Contact Number:" + contact + "<br/> Message:" + mess+ "<br/>" ;
+           console.log(body)
+            Email.send({
+            // SecureToken : "e30cd0e6-eded-4be7-b8b8-aca267db4b27",    
+            Host : "smtp.elasticemail.com",
+            Username : "sharpcareertechnologies@gmail.com",
+            Password : "15FEFEB8EAE500B486EFEF33138DE73402C7",
+            To : 'services@sharpcareer.in',
+            From : "sharpcareertechnologies@gmail.com",
+            Subject : subject,
+            Body : body
+        }).then(
+  message => {
+    if(message=='OK'){
+        swal("Your Message is recieved!", "We will get back to you!", "success");
+    }
+    else {
+        swal("Your Message is not  recieved!", "There is some Error!", "error");
+    }
+  }
+);
+}
+        
+    </script>
+ <!-- Footer -->
+  
+ <section class="  bg-no-repeat bg-cover  min-h-[320px] pt-[200px] ">
+    <!--main content box-->
+    <footer
+    class="-mt-[100px] md:-mt-[110px] bg-deepBlue "
+  >
+  
+    <div
+      class="w-10/12 pt-[40px] pb-10 md:pt-[35px] md:my-0 md:w-11/12 max-w-[1080px] mx-auto flex flex-col space-y-6 lg:space-y-0 lg:space-x-4 lg:flex-row justify-between"
+    >
+      <!-- column - 1 -->
+      <div class="flex flex-col md:max-w-[340px] lg:max-w-[260px]">
+        <!-- <img
+          src="/images/logo-dark.svg"
+          loading="lazy"
+          width="120px"
+          height="24px"
+        /> -->
+        <div class="sameclass flex">
+          <img src="./assets/Logo/logo-removebg-preview.png" alt="" class="h-10 w-10">
+        <h1 class="text-white font-bold text-center m-2 text-xl">  SharpCareer</h1>
+        </div>
+        
+        <p class="text-sm text-white my-3 font-mullish">
+          SharpCareer Technologies acts as a strategic intermediary, bridging the gap between students and companies amidst economic challenges.We offer students unparalleled access to industry-level internships and practical experiences, providing them with invaluable insights and skills directly applicable to their desired career paths.
+        </p>
+         
+      </div>
+      <!-- column - 2 -->
+      <div
+        class="flex flex-col space-y-4 md:space-y-0 md:flex-row md:space-x-4 justify-between"
+      >
+        <!-- sub column - 1 -->
+        <div class="space-y-3">
+          <div>
+            <p class="font-mullish uppercase font-bold text-slate-50 mb-1">
+              Company
+            </p>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="font-mullish font-medium text-[#01b256] hover:text-grayBlue transition-all duration-200"
+                  >About Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="font-mullish font-medium text-[#01b256] hover:text-grayBlue transition-all duration-200"
+                  >Contact Us</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="font-mullish font-medium text-[#01b256] hover:text-grayBlue transition-all duration-200"
+                  >Services</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="font-mullish font-medium text-[#01b256] hover:text-grayBlue transition-all duration-200"
+                  >Internships</a
+                >
+              </li>
+              
+              
+            </ul>
+          </div>
+          
+            
+            
+          </div>
+          
+        </div>
+        <!-- sub column - 2 -->
+        <div class="space-y-3">
+          <div>
+            <p class="font-mullish uppercase font-bold text-slate-50 mb-1">
+              Legal
+            </p>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="font-mullish font-medium text-[#01b256] hover:text-grayBlue transition-all duration-200"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="font-mullish font-medium text-[#01b256] hover:text-grayBlue transition-all duration-200"
+                  >Terms & Condition</a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="font-mullish font-medium text-[#01b256] hover:text-grayBlue transition-all duration-200"
+                  >Refund & Cancellation Policy</a
+                >
+              </li>
+              
+              
+             
+            </ul>
+          </div>
+          
+          
+        </div>
+        <!-- sub column - 3 -->
+        <div>
+           <div>
+            <p class="font-mullish uppercase font-bold text-slate-50 mb-1 mt-3">
+              Get in touch
+            </p>
+            <ul class="space-y-2">
+              <li>
+                <a
+                  href="#"
+                  class="font-mullish font-medium text-lightBlue500 hover:text-grayBlue transition-all duration-200"
+                  ></a
+                >
+              </li>
+              <li>
+                <a
+                  href="#"
+                  class="font-mullish font-medium text-[#01b256] hover:text-grayBlue transition-all duration-200"
+                  >services@sharpcareer.in</a
+                >
+              </li>
+            </ul>
+          </div>
+          <div>
+            <p class="font-mullish uppercase font-bold text-slate-200 mb-1 mt-6">
+              FIND US ONLINE
+            </p>
+            <ul class="flex space-x-4 items-center mt-4">
+              <li class="cursor-pointer">
+                <a>
+                  <img
+                    src="/images/facebook-icon.svg"
+                    width="24"
+                    height="24"
+                    loading="lazy"
+                  />
+                </a>
+              </li>
+              <li class="cursor-pointer">
+                <a>
+                  <img
+                    src="/images/twitter-icon.svg"
+                    width="24"
+                    height="24"
+                    loading="lazy"
+                  />
+                </a>
+              </li>
+              <li class="cursor-pointer">
+                <a>
+                  <img
+                    src="/images/instagram-icon.svg"
+                    width="24"
+                    height="24"
+                    loading="lazy"
+                  />
+                </a>
+              </li>
+              
+              <li class="cursor-pointer">
+                <a>
+                  <img
+                    src="/images/linkedin-icon.svg"
+                    width="24"
+                    height="24"
+                    loading="lazy"
+                  />
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div>
+            
+            <p class="font-mullish text-sm mt-4 whitespace-nowrap text-white">
+              SharpCareer Technologies 
+              <br />Delta 3 <br />Greater Noida, 201310,
+              <br> Uttar Pradesh, India <br /> Reg: UDYAM-UP-06-0010145
+            </p>
+            <div class="font-mullish mt-6 text-white ">
+              <p class="text-sm">© SharpCareer Technologies 2024</p>
+              <p class="text-sm">All Rights Reserved</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  </section>
+</body>
+</html>
