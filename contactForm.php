@@ -36,9 +36,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     VALUES ('$name', '$email', '$contact_number', '$subject', '$message')";
 
     if ($conn->query($sql) === TRUE) {
-        echo "New record created successfully";
+        echo "Thank you! Your form has been received.";
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error:Sorry, there was an error processing your form. Please try again later. " . $sql . "<br>" . $conn->error;
     }
 }
 

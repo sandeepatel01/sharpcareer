@@ -22,7 +22,21 @@ document.addEventListener("DOMContentLoaded", function() {
         window.open(mailtoLink, "_blank");
     });
     
-  
+    // const links = document.querySelectorAll('a[href^="#"]');
+    
+    // links.forEach(link => {
+    //     link.addEventListener('click', function(event) {
+    //         event.preventDefault();
+    //         const targetId = this.getAttribute('href').slice(1);
+    //         const targetElement = document.getElementById(targetId);
+    //         const offsetTop = targetElement.offsetTop;
+
+    //         window.scrollTo({
+    //             top: offsetTop,
+    //             behavior: 'smooth'
+    //         });
+    //     });
+    // });
 
 
 
@@ -124,5 +138,7 @@ function toggleMenu() {
       menu.style.display = "block";
     }
   }
+
+
 
   
